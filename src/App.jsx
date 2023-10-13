@@ -1,14 +1,11 @@
-import React, { useEffect, useLayoutEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
 import '../src/App.css';
 import { gsap } from 'gsap';
-import icon from './svg.svg';
-
 import { TextPlugin } from 'gsap/TextPlugin';
-import { RoughEase } from 'gsap/EasePack';
 import { MotionPathPlugin } from 'gsap/all';
 import TickMark from './Tick';
 
-gsap.registerPlugin(TextPlugin, RoughEase, MotionPathPlugin);
+gsap.registerPlugin(TextPlugin, MotionPathPlugin);
 
 export default function App() {
   useLayoutEffect(() => {
@@ -26,88 +23,59 @@ export default function App() {
       repeat: -1,
       repeatDelay: 0.5,
     });
-    tl.set('.modal', { scale: 0.5, opacity: 0 });
+    tl.set('.modal', { scale: 0.3, opacity: 0 });
 
     tl.to('.userName', {
       duration: 1,
       text: 'example@gmail.com',
-    });
-    tl.to('.password', {
-      duration: 1,
-      text: 'password',
-      onStart: () => {
-        document.querySelector('.cursor1').classList.add('hide');
-        document.querySelector('.cursor2').classList.remove('hide');
-      },
-    });
-    tl.to('#mousePointer', {
-      duration: 1,
-      motionPath: {
-        path: '#flightPath',
-        align: '#flightPath',
-      },
-      ease: 'power1.inOut',
-      onStart: () => {
-        document.getElementById('mousePointer').classList.remove('hide');
-      },
-    });
-    tl.to('#submitButton', {
-      duration: 0.1,
-      scale: 1.1,
-      repeat: 1,
-      yoyo: true,
-    });
-    tl.to('.modal', {
-      scale: 1,
-      opacity: 1,
-      ease: 'back',
-      duration: 0.5,
-      onComplete: () => {
-        document.querySelector('.cursor2').classList.add('hide');
-        document.querySelector('.cursor1').classList.remove('hide');
-      },
-    });
+    })
+      .to('.password', {
+        duration: 1,
+        text: 'password',
+        onStart: () => {
+          document.querySelector('.cursor1').classList.add('hide');
+          document.querySelector('.cursor2').classList.remove('hide');
+        },
+      })
+      .to('#mousePointer', {
+        duration: 1,
+        motionPath: {
+          path: '#flightPath',
+          align: '#flightPath',
+        },
+        ease: 'power1.inOut',
+        onStart: () => {
+          document.getElementById('mousePointer').classList.remove('hide');
+        },
+      })
+      .to('#submitButton', {
+        duration: 0.08,
+        scale: 0.9,
+        repeat: 1,
+        yoyo: true,
+      })
+      .to('.modal', {
+        scale: 1,
+        opacity: 1,
+        ease: 'back',
+        duration: 0.5,
+        onComplete: () => {
+          document.querySelector('.cursor2').classList.add('hide');
+          document.querySelector('.cursor1').classList.remove('hide');
+        },
+      });
   }, []);
   return (
-    <div
-      style={{
-        backgroundColor: 'black',
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <div
-        className='container'
-        style={{
-          display: 'flex',
-          gap: '10px',
-          flexDirection: 'column',
-          alignItems: 'center',
-          position: 'relative',
-        }}
-      >
-        <div
-          style={{
-            backgroundColor: 'lightgray',
-            width: '400px',
-            borderRadius: '10px',
-          }}
-        >
-          <h2 style={{ color: 'gray' }}>
+    <div className='mainContainer'>
+      <div className='container'>
+        <div className='inputField'>
+          <h2>
             <span className='userName'></span>
             <span className='cursor1'> |</span>
           </h2>
         </div>
-        <div
-          style={{
-            backgroundColor: 'lightgray',
-            width: '400px',
-            borderRadius: '10px',
-          }}
-        >
-          <h2 style={{ color: 'gray' }}>
+        <div className='inputField'>
+          <h2>
             <span className='password'></span>
             <span className='cursor2 hide'> |</span>
           </h2>
