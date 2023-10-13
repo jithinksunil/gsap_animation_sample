@@ -1,0 +1,83 @@
+@import "../Util/config";
+
+.display {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  align-content: space-between;
+  @media (max-width: 600px) {
+    display: block;
+    overflow: hidden;
+    .SvgHero {
+      display: none;
+    }
+  }
+}
+.container {
+  height:80vh;
+  width: calc(100vw - 5em);
+  margin: 0 auto;
+  font-family: $pageFont;
+  font-weight: 600;
+  color: $fontColor;
+  background: url(../../Resources/svgexport-1.svg);
+}
+.text {
+  text-align: left;
+  text-justify: distribute;
+  letter-spacing: 0.3rem;
+  font-size: clamp(1.5rem, 3vw, 3rem);
+  @media (max-width: 800px) {
+    letter-spacing: 0.3rem;
+  }
+  @media (max-width: 600px) {
+    letter-spacing: 0.1rem;
+    padding: 0 20px;
+    text-align: center;
+  }
+}
+.typeWritter {
+  font-size: clamp(1.5rem, 5vw, 3.2rem);
+}
+.font {
+  margin-top: calc(200px + 0.5rem);
+}
+
+.heroImg {
+  width: 80%;
+  height: auto;
+  margin: 0 2rem;
+  max-width: 100%;
+}
+
+.textGrad {
+  background: hsla(14, 87%, 47%, 1);
+
+  background: linear-gradient(
+    0deg,
+    hsla(14, 87%, 47%, 1) 0%,
+    hsla(303, 63%, 35%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    0deg,
+    hsla(14, 87%, 47%, 1) 0%,
+    hsla(303, 63%, 35%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    0deg,
+    hsla(14, 87%, 47%, 1) 0%,
+    hsla(303, 63%, 35%, 1) 100%
+  );
+
+  background-size: 100%;
+  text-transform: uppercase;
+  font-size: clamp(2.5rem, 7vw, 4rem);
+}
+
+.gradientText {
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}

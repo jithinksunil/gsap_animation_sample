@@ -1,0 +1,55 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.container div{
+  padding-left: 10px;
+  padding-top:10px;
+  padding-bottom:10px
+}
+
+svg {
+  width: auto;
+  height: auto;
+  max-width:80%;
+  max-height: 80%;
+  overflow: visible;
+}
+
+#flightPath {
+  fill: none;
+  /* stroke: blue; */
+  stroke-width: 2px;
+}
+.increase-size {
+  transform: scale(1.05); /* 1.1 is 110% */
+}
+.hide{
+  visibility: hidden;
+}
+.cursor1,.cursor2{
+  color: rgb(52, 52, 52);
+}
+
+#submitButton{
+  padding-right: 10px;
+  padding-left: 10px;
+  border-radius: 20px;
+  color: rgb(182, 182, 182);
+  background-color: green;
+}
+
+.modal{
+  background-color: rgb(237, 237, 237);
+  border-radius: 30px;
+  height: 150px;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -20px;
+}
+.successMessage{
+  color:green
+}

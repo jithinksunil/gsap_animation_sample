@@ -1,0 +1,13 @@
+body{
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+.app {
+  padding: 10px;
+}
+
+.box {
+  margin: 10px 0;
+}
